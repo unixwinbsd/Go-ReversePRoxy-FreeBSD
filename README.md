@@ -29,7 +29,9 @@ HTTP Web Server
 ### Build from Source
 
 git clone https://github.com/unixwinbsd/Go-ReverseProxy-FreeBSD.git
+
 go mod init github.com/unixwinbsd/Go-ReversePRoxy-FreeBSD
+
 go mod tidy
 
 go get golang.org/x/crypto/bcrypt
