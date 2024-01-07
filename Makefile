@@ -14,7 +14,7 @@ gencert:
 	cd .unixwinbsd; go run "$(GOROOT)/src/crypto/tls/generate_cert.go" --rsa-bits=2048 --host=localhost
 
 run:
-	@echo "> Starting Gargoyle"
+	@echo "> Starting unixwinbsd"
 	go run unixwinbsd.go
 
 test:
