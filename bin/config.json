@@ -1,0 +1,92 @@
+[
+	{
+
+		"source": "192.168.5.2:8585",
+		"reverse_proxy": {
+
+			"targets": ["http://127.0.0.1:3000"]
+		}
+	}
+]
+
+
+
+[
+	{
+		"source": "192.168.5.2:8585",
+		"reverse_proxy": {
+			"targets": [
+				"http://127.0.0.1:3000"
+
+			],
+
+			"lb_algorithm": "round-robin",
+			"health_check": {
+				"enabled": true,
+				// relative path for healthcheck requests, default: ""
+				"path": "/health",
+				// time after which each healthcheck starts, required, unit: seconds
+				"interval": 10,
+				// HTTP request timeout for requests to target servers, default: 5, unit: seconds
+				"timeout": 15
+			}
+		}
+	}
+]
+
+[
+	{
+		"source": "192.168.5.2:8585",
+		"fs": {
+
+			"path": "/root/.cache/pypoetry/index/reverseproxy/gargoyle/bin"
+		}
+	}
+]
+
+[
+	{
+
+		"header": {
+			// map of HTTP headers to add
+			"add": {
+				"Access-Control-Max-Age": "86400"
+			},
+			// list of HTTP headers to remove
+			"remove": ["Served-By"]
+		}
+	}
+]
+```
+
+
+
+Supported Methods: `basic_auth`, `key_auth`
+
+
+	[
+		{
+
+			"auth": {
+				// map of username, hashes
+				"basic_auth": {
+					"tinfoil": "JDJhJDEwJHB3YWI3YTJPVmxPTG1pTjlaSG5VaU9NM2tUZWZWaTFrSGR4bFg3VXVXTGVpcWkydVA2L2VX",
+					"knight": "JDJhJDEwJFB1ZVRaL2dFL1RDS1RxbFc5dTdBYWVEc245OTVuS3FPdGJjeGpXQ3Q5T0RJSjRnT2dEU3lp"
+				}
+			}
+		}
+	]
+
+
+	[
+		{
+
+			"auth": {
+				"key_auth": {
+					// HTTP header to get the key from, default: X-Api-Key
+					"header": "X-Auth-Key",
+					"key": "some-secret-key"
+				}
+			}
+		}
+	]
