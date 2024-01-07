@@ -35,12 +35,17 @@ go mod init github.com/unixwinbsd/Go-ReversePRoxy-FreeBSD
 go mod tidy
 
 go get golang.org/x/crypto/bcrypt
+
 go get github.com/unixwinbsd/Go-ReversePRoxy-FreeBSD/internal/reverseproxy
+
 go get github.com/unixwinbsd/Go-ReversePRoxy-FreeBSD
+
 go get github.com/unixwinbsd/Go-ReversePRoxy-FreeBSD/internal/server
+
 go get github.com/unixwinbsd/Go-ReversePRoxy-FreeBSD/internal/config
 
 The final step is to run the "make build" command, to create a reverse proxy bin file.
+
 make build
 
 This will create a binary in the `bin` directory.
